@@ -3,6 +3,7 @@ package com.example.practical1
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.service.autofill.TextValueSanitizer
+import android.widget.Button
 import android.widget.TextView
 import org.w3c.dom.Text
 
@@ -14,7 +15,7 @@ class MainActivity : AppCompatActivity() {
 
         var countButton: Button = findViewById(R.id.buttonCalculate)
 
-        countButton.setOnClickListerner { calculate() }
+        countButton.setOnClickListener() { calculate() }
 
         var resetButton: Button = findViewById(R.id.buttonReset)
 
@@ -40,7 +41,7 @@ class MainActivity : AppCompatActivity() {
 
         carLoan = (carPrice.text.toString().toDouble() - downPayment.text.toString().toDouble())
         interest = (carLoan.toDouble() * interestRate.text.toString().toDouble() * loanPeriod.text.toString().toInt())
-        monthlyRepay = (((carLoan * interest) / (loanPeriod.text/toString().toInt())) / 12)
+        monthlyRepay = ((carLoan * interest) / (loanPeriod.text.toString().toInt()) / 12)
 
         totalLoan.text = "Loan: RM" + carLoan.toString()
         totalInterest.text = "Interest: RM" + interest.toString()
